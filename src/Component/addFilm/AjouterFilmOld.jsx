@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-
     export const AjoutFilm = (props) => {
         const [film, setFilm] = useState({ titre: "", resume: "" , realisateur:""})
 
@@ -16,6 +15,7 @@ import React, { Fragment, useState } from 'react'
         const handleSummit = (event) => {
             event.preventDefault();
             props.children(film);
+            console.log(film);
         }
         return (
             <Fragment>

@@ -6,8 +6,9 @@ export const ListeFilms = () => {
     const [ListeFilms, setListeFilms] = useState([])
 
     
-    const handleAjoutFilm = (film) => {
-        setListeFilms([...ListeFilms, film])
+    const handleAjoutFilm = (film,props) => {
+        setListeFilms([...ListeFilms, film]);
+        
     }
 
     return (

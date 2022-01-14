@@ -1,8 +1,11 @@
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom"
 import { Fragment } from "react/cjs/react.production.min";
 import Accueil from "../pages/Accueil"
-import PageListeFilm from "../pages/PageAjoutFilm"
+import PageAddFilm from "../addFilm/addFilm"
 import NavBar from "./NavBar";
+import Films from "../afficherFilm/Films"
+import filmsData from "../db/db"
+import React, {useState} from 'react';
 
 let pages = [
     {
@@ -24,16 +27,16 @@ let pages = [
 ]
 
 export const Routing = (props) => {
+    const [data, setData] = useState(filmsData)
+
     return (
         <Fragment>
             <BrowserRouter>
                 <NavBar pages={pages} />
                 <Routes>
                     <Route path="/Accueil" element={<Accueil/>} />
-                    <Route path="/AjoutFilm" element={<PageListeFilm/>} />
-                    {/* <Route path="/FilmDetails" element={<FilmDetails/>} /> */}
-{/*                     <Route path="/ListeFilms" element={<ListeFilms/>} />  
- */}                   
+                    <Route path="/AjoutFilm" element={<PageAddFilm data={data} setData={setData}/>} />
+                    <Route path="/ListeFilms" element={<Films/>} />  
                     <Route path="/" element={<Navigate to="/Accueil" />} />
                 </Routes>
             </BrowserRouter>
